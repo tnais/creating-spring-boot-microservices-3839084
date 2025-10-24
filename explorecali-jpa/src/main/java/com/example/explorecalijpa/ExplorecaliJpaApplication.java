@@ -54,6 +54,7 @@ public class ExplorecaliJpaApplication implements CommandLineRunner {
         tourPackageService.createTourPackage("NW", "Nature Watch");
         tourPackageService.createTourPackage("SC", "Snowboard Cali");
         tourPackageService.createTourPackage("TC", "Taste of California");
+
     }
 
     /**
