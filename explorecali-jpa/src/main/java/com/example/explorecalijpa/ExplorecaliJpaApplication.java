@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import com.example.explorecalijpa.business.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +23,8 @@ public class ExplorecaliJpaApplication implements CommandLineRunner {
 
     @Autowired
     private TourPackageService tourPackageService;
+    @Autowired
+    private StaffService staffService;
 
     @Autowired
     private TourService tourService;
@@ -69,6 +72,9 @@ public class ExplorecaliJpaApplication implements CommandLineRunner {
         tourPackageService.createTourPackage("NW", "Nature Watch");
         tourPackageService.createTourPackage("SC", "Snowboard Cali");
         tourPackageService.createTourPackage("TC", "Taste of California");
+
+        staffService.createStaff(1,"Gian Uberto","Lauri", "saint@gianoziaorientale.org");
+        staffService.createStaff(2, "Chiara", "Paco", "chiara@gianoziaorientale.org");
     }
 
     /**
