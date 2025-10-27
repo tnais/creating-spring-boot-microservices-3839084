@@ -1,8 +1,12 @@
 package com.example.explorecalijpa.web;
 
+import com.example.explorecalijpa.model.TourRating;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 import org.springframework.http.HttpStatus;
@@ -53,4 +57,29 @@ public class TourRatingController {
     return exception.getMessage();
   }
 
+  @GetMapping
+  public List<RatingDto> getRatings(@PathVariable(value = "tourId") int tourId) {
+    List<TourRating> tourRatings = tourRatingService.lookupRatings(tourId);
+    return tourRatings.stream().map(RatingDto::new).toList();
+  }
+
+
+  @GetMapping("/average")
+  public Map<String,Double> getAverage(@PathVariable(value = "tourId") int tourId) {
+    return Map.of("average", tourRatingService.getAverageScore(tourId));
+  }
+
+  @PutMapping()
+  public void updateTourRating(@PathVariable(value = "tourId") int tourId,
+                               @RequestBody @Valid RatingDto ratingDto) {
+    tourRatingService.update(tourId, ratingDto.getCustomerId(), ratingDto.getScore(), ratingDto.getComment());
+  }
+
+  @DeleteMapping("/{customerId}")
+  public void deleteTourRating(@PathVariable(value = "tourId") int tourId,
+                               @PathVariable(value = "customerId") int customerId) {
+    tourRatingService.delete(tourId, customerId);
+  }
+
+  @PatchMapping
 }
