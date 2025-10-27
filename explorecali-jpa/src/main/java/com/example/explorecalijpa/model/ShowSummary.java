@@ -1,6 +1,5 @@
-package com.example.explorecalijpa.projections;
+package com.example.explorecalijpa.model;
 
-import com.example.explorecalijpa.model.Tour;
 import org.springframework.data.rest.core.config.Projection;
 
 @Projection(name="showSummary", types = {Tour .class})

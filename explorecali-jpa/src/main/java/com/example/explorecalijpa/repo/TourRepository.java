@@ -1,7 +1,6 @@
 package com.example.explorecalijpa.repo;
 
 import com.example.explorecalijpa.model.Difficulty;
-import com.example.explorecalijpa.model.TourPackage;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.explorecalijpa.model.Tour;

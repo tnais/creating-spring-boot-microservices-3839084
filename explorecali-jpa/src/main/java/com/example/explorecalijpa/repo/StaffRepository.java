@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(path="staff", collectionResourceRel = "staff")
-public interface StaffRepo extends JpaRepository<Staff, Integer> {
+public interface StaffRepository extends JpaRepository<Staff, Integer> {
 }
