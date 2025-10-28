@@ -34,7 +34,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
   }
   
   /**
-   * Leverage Exception Handler frameworf for id not found Exception.
+   * Leverage Exception Handler framework for id not found Exception.
    * 
    * @param ex      NoSuchElementException
    * @param request WebRequest
@@ -48,7 +48,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
   }
 
   /**
-   * Leverage Exception Handler frameworf for id not found Exception.
+   * Leverage Exception Handler framework for id not found Exception.
    * 
    * @param ex      NoSuchElementException
    * @param request WebRequest
@@ -63,7 +63,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
   }
   
   /**
-   * Leverage Exception Handler frameworf for unexpected Exceptions.
+   * Leverage Exception Handler framework for unexpected Exceptions.
    * 
    * @param ex
    * @param request
