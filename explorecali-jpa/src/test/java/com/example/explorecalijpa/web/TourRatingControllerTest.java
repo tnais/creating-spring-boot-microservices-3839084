@@ -12,6 +12,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import com.example.explorecalijpa.model.Tour;
 import com.example.explorecalijpa.model.TourRating;
 
 import jakarta.validation.ConstraintViolationException;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 public class TourRatingControllerTest {
@@ -40,6 +42,7 @@ public class TourRatingControllerTest {
   @Autowired
   private TestRestTemplate restTemplate;
 
+
   @MockBean
   private TourRatingService serviceMock;
 
@@ -50,6 +53,13 @@ public class TourRatingControllerTest {
   private Tour tourMock;
 
   private RatingDto ratingDto = new RatingDto(SCORE, COMMENT,CUSTOMER_ID);
+
+  @Before("all")
+  public void setup() {
+    HttpComponentsClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory();
+    requestFactory.setConnectTimeout(9999);
+    restTemplate.getRestTemplate().setRequestFactory(requestFactory);
+  }
 
   @Test
   void testCreateTourRating() {
