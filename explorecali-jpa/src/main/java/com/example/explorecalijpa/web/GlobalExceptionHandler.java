@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
   
   /**
-   * Leverage Exception Handler framework for resource not found Exception.
+   * Leverage Exception Handler framework for "resource not found" Exception.
    * 
    * @param ex      ResourceNotFoundException
    * @param request WebRequest
