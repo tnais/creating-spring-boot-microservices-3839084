@@ -38,7 +38,8 @@ public class TourRatingController {
   @ResponseStatus(HttpStatus.CREATED)
   public RatingDto createTourRating(@PathVariable(value = "tourId") int tourId,
       @RequestBody @Valid RatingDto ratingDto) {
-    tourRatingService.createNew(tourId, ratingDto.getCustomerId(), ratingDto.getScore(), ratingDto.getComment());
+    return new RatingDto(tourRatingService.createNew(tourId, ratingDto.getCustomerId(),
+      ratingDto.getScore(), ratingDto.getComment()));
   }
 
   @ExceptionHandler(NoSuchElementException.class)
@@ -80,6 +81,7 @@ public class TourRatingController {
    */
   @PatchMapping
   public RatingDto updateWithPatch(@PathVariable(value = "tourId") int tourId, @RequestBody @Valid RatingDto ratingDto) {
-    return ratingDto;
+    return new RatingDto(tourRatingService.updateSome(tourId, ratingDto.getCustomerId(),
+      ratingDto.getScore().describeConstable(), ratingDto.getComment().describeConstable()));
   }
 }
