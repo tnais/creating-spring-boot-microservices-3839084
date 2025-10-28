@@ -83,5 +83,7 @@ public class TourRatingController {
   public RatingDto updateWithPatch(@PathVariable(value = "tourId") int tourId, @RequestBody @Valid RatingDto ratingDto) {
     return new RatingDto(tourRatingService.updateSome(tourId, ratingDto.getCustomerId(),
       ratingDto.getScore().describeConstable(), ratingDto.getComment().describeConstable()));
+
   }
+
 }
