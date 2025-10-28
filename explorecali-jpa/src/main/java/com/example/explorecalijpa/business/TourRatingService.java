@@ -71,7 +71,6 @@ public class TourRatingService {
    * Get a page of tour ratings for a tour.
    *
    * @param tourId   tour identifier
-   * @param pageable page parameters to determine which elements to fetch
    * @return Page of TourRatings
    * @throws NoSuchElementException if no Tour found.
    */
